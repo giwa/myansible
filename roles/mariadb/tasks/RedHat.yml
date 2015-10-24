@@ -1,0 +1,10 @@
+---
+- name: transfer repository file
+  copy: src=templates/MariaDB.repo.j2 dest=/etc/repo.d/MariaDB.repo owner=root group=root mode=644
+
+- name: install MariaDB
+  yum: name={{ item }} state=latest update_cache=yes
+  with_items:
+    - MariaDB-server
+    - MariaDB-client
+    - MariaDB-devel
