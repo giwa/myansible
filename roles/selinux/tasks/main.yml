@@ -1,0 +1,5 @@
+---
+# http://docs.ansible.com/ansible/selinux_module.html
+- name: selinux disable
+  selinux: state=disabled
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
